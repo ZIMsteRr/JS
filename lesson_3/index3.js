@@ -1,6 +1,18 @@
 const action = prompt("Choose action (+, -, *, /)");
+
+while (!isValidOperator(action)) {
+    action = prompt("Invalid action! Choose action (+, -, *, /)");
+}
+
 const operandA = getOperand('a');
 const operandB = getOperand('b');
+
+while (isNaN(operandA) || isNaN(operandB)) {
+    alert("Invalid operand! Please enter a valid number.");
+    operandA = getOperand('a');
+    operandB = getOperand('b');
+} 
+
 const res = calc(action, operandA, operandB);
 
 showResult(action, operandA, operandB, res)
@@ -29,4 +41,8 @@ function calc (action, a, b) {
 
 function showResult (action, a, b, res) {
     alert(`${a} ${action} ${b} = ${res}`);
+}
+
+function isValidOperator (operator) {
+    return operator === '+' || operator === '-' || operator === '*' || operator === '/';
 }

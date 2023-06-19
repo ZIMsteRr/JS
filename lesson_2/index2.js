@@ -26,6 +26,4 @@ switch (operation) {
     alert("Wrong operation!");
 }
 
-let message = operationString + ': ' + firstOperand + " " + operation + " " + secondOperand + " = " + result;
-
-alert(message);
+alert(`${operationString} : ${firstOperand} ${operation} ${secondOperand} = ${result}`);

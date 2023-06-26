@@ -33,22 +33,23 @@ function averageStudentGrade(studentId, students) {
   return average;
 }
 
-function averageGroupGrade(students) {
-  let sum = 0;
-  let count = 0;
+function averageGroupMark(students) {
+  const allMarks = students.reduce((acc, student) => {
+    return acc.concat(student.marks); // Объединяем все оценки всех студентов в один массив
+  }, []);
 
-  students.forEach((student) => {
-    student.grades.forEach((mark) => {
-      sum += mark;
-      count++;
-    });
-  });
+  const sumOfMarks = allMarks.reduce((total, mark) => {
+    return total + mark; // Находим сумму всех оценок
+  }, 0);
 
-  if (count === 0) {
-    return "No grades found";
+  const numberOfMarks = allMarks.length; // Получаем количество всех оценок
+
+  if (numberOfMarks === 0) {
+    return "No marks found";
   }
 
-  const average = sum / count;
+  const average = sumOfMarks / numberOfMarks; // Вычисляем средний балл
+
   return average;
 }
 

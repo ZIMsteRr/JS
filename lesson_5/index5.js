@@ -21,37 +21,38 @@ const students = [
   },
 ];
 
-function averageStudentGrade(studentId, students) {
+function averageStudentMark(studentId, students) {
   const student = students.find((student) => student.id === studentId);
 
   if (!student) {
     return "Student not found";
   }
 
-  const sum = student.grades.reduce((total, grade) => total + grade, 0);
-  const average = sum / student.grades.length;
+  const sum = student.marks.reduce((total, mark) => total + mark, 0);
+  const average = sum / student.marks.length;
   return average;
 }
 
+console.log(averageStudentMark(10, students));
+
 function averageGroupMark(students) {
   const allMarks = students.reduce((acc, student) => {
-    return acc.concat(student.marks); // Объединяем все оценки всех студентов в один массив
+    return acc.concat(student.marks);
   }, []);
 
   const sumOfMarks = allMarks.reduce((total, mark) => {
-    return total + mark; // Находим сумму всех оценок
+    return total + mark;
   }, 0);
 
-  const numberOfMarks = allMarks.length; // Получаем количество всех оценок
+  const numberOfMarks = allMarks.length;
 
   if (numberOfMarks === 0) {
     return "No marks found";
   }
 
-  const average = sumOfMarks / numberOfMarks; // Вычисляем средний балл
+  const average = sumOfMarks / numberOfMarks;
 
   return average;
 }
 
-console.log(averageStudentGrade(10, students));
-console.log(averageGroupGrade(students));
+console.log(averageGroupMark(students));

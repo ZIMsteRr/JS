@@ -33,8 +33,6 @@ function averageStudentMark(studentId, students) {
   return average;
 }
 
-console.log(averageStudentMark(10, students));
-
 function averageGroupMark(students) {
   const allMarks = students.reduce((acc, student) => {
     return acc.concat(student.marks);
@@ -55,4 +53,5 @@ function averageGroupMark(students) {
   return average;
 }
 
+console.log(averageStudentMark(10, students));
 console.log(averageGroupMark(students));

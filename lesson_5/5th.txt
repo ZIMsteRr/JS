@@ -75,6 +75,12 @@ console.log(users.find(user => user.name === 'Amy'))
 [].reduce (accumulato, current)
 accumulator - переменная общая для всех итераций цикла
 
+[].forIn - for...in является конструкцией цикла в JavaScript, которая используется для перебора перечисляемых свойств объекта. Он позволяет выполнить итерацию по всем ключам (свойствам) объекта.
+
+for (variable in object) {
+  // блок кода, который будет выполнен для каждого свойства объекта
+}
+
 const numbers = [4, 5, 6];
  const sum = numbers.reduce((acc, number) => {
     return acc + number
